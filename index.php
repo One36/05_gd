@@ -1,5 +1,5 @@
 <?php
-$src = 'source/3.jpg';
+$src = 'source/1.jpg';
 $imgInfo = getimagesize($src);
 $srcWidth = $imgInfo[0];
 $srcHeight = $imgInfo[1];
@@ -11,11 +11,10 @@ $srcImg = imagecreatefromjpeg($src);
  *  2100 Höhe
  *  2800 Breite
  * 
- *  2800   $dstWidth (200)
- *  ---- = ---
+ *  2800    $dstWidth (200)
+ *  ---- = -----------
  *  2100    $dstHeight 
  *  
- * 
  *  $dstWidth = 200;
  *  $dstHeight = 2100*200/2800
  *  $dstHeight = $srcHeight * $dstWidth / $srcWidth;
@@ -31,8 +30,7 @@ $srcImg = imagecreatefromjpeg($src);
     
     $dstPath = './dest/' . $dstFilename . '_' . $dstWidth . 'x' . $dstHeight . '.' . $dstExtension;
     $dstPathRetina = './dest/' . $dstFilename . '_' . $dstWidth . 'x' . $dstHeight . '@2x' . '.' . $dstExtension;
-    
-    
+        
     $dstImg = imagecreatetruecolor($dstWidth, $dstHeight);
     imagecopyresampled($dstImg, $srcImg, 0, 0, 0, 0, $dstWidth, $dstHeight, $srcWidth, $srcHeight);
     imagejpeg($dstImg, $dstPath);
